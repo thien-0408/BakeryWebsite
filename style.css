@@ -1,0 +1,57 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+.banner{
+    font-family: "Momo Signature", cursive;
+}
+.about-us{
+    font-family: "Dancing Script", cursive;
+}
+.swiper-button-next, .swiper-button-prev {
+    color: #e91e63; 
+}
+.swiper-pagination-bullet-active { 
+    background: #e91e63; 
+}
+.swiper-button-prev {
+    left: -8px !important;
+    color: #e91e63;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .swiper-button-prev::after { font-size: 16px; }
+
+  .swiper-button-next {
+    right: 16px !important;
+    color: #e91e63;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .swiper-button-next::after { font-size: 16px; }
+.swiper-button-next, .swiper-button-prev {
+    color: #e91e63;
+    background: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 14px;
+  }
+  .swiper-pagination-bullet-active {
+    background: #e91e63;
+  }
+  html {
+  scroll-behavior: smooth;
+}

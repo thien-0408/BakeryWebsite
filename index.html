@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Momo+Signature&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Kim's Bakery Store</title>
+  </head>
+  <body>
+    <header>
+      <div
+        class="flex items-center justify-center gap-20 bg-[#f8e8da] font-semibold text-[#614735]"
+      >
+        <img src="/images/logo.png" alt="" width="100" />
+        <div class="hover:text-[#f37977]">
+          <a href="">Trang Chủ</a>
+        </div>
+        <div class="hover:text-[#f37977]">
+          <a href="#category">Danh Mục</a>
+        </div>
+        <div class="hover:text-[#f37977]">
+          <a href="#about-us">Về Chúng Tôi</a>
+        </div>
+        <div class="hover:text-[#f37977]">
+          <a href="#get-cake">Yêu Cầu</a>
+        </div>
+        <div class="hover:text-[#f37977]">
+          <a href="#more-info">Thông Tin</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="bg-[#f8e8da] mt-5 flex flex-col items-center">
+      <!--Banner-->
+      <section id="home" class="min-h-screen grid grid-cols-1 lg:grid-cols-3">
+        <div class="flex flex-col justify-center px-8 lg:px-16 bg-white">
+          <h1
+            class="text-4xl lg:text-6xl font-bold text-gray-800 mb-4 text-center banner"
+          >
+            Đặt Bánh<br />
+            <span class="text-gray-600 banner">Ngay Tại Đây</span>
+          </h1>
+
+          <button
+            class="mt-6 px-8 py-3 border-2 border-gray-400 text-gray-700 rounded-full hover:bg-gray-100 transition self-center"
+          >
+            <a href="#category">Chọn Bánh</a>
+          </button>
+        </div>
+
+        <div
+          class="lg:col-span-2 relative overflow-hidden h-64 lg:h-screen rounded-t-xl"
+        >
+          <img
+            src="/images/banner.jpg"
+            alt="Bánh ngon"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+      </section>
+
+      <!--Cakes-->
+      <section class="container mx-auto max-w-6xl py-12 px-4" id="category">
+        <h2 class="text-center text-6xl font-cursive text-brand-text mb-8">
+          Danh mục
+        </h2>
+
+        <div x-data="{ activeTab: 'cakes' }" class="w-full">
+          <nav class="flex justify-center mb-8">
+            <ul class="flex items-center space-x-10 md:space-x-16">
+              <li>
+                <button
+                  @click="activeTab = 'cakes'"
+                  :class="{ 
+                                'text-brand-red-dark border-brand-red-dark': activeTab === 'cakes', 
+                                'text-gray-500 border-transparent': activeTab !== 'cakes' 
+                            }"
+                  class="text-xl font-semibold tracking-wide border-b-2 pb-1 transition-colors duration-300 ease-in-out hover:text-brand-red-dark"
+                >
+                  Cakes
+                </button>
+              </li>
+              <li>
+                <button
+                  @click="activeTab = 'cupcakes'"
+                  :class="{ 
+                                'text-brand-red-dark border-brand-red-dark': activeTab === 'cupcakes', 
+                                'text-gray-500 border-transparent': activeTab !== 'cupcakes' 
+                            }"
+                  class="text-xl font-semibold tracking-wide border-b-2 pb-1 transition-colors duration-300 ease-in-out hover:text-brand-red-dark"
+                >
+                  Cupcakes
+                </button>
+              </li>
+              <li>
+                <button
+                  @click="activeTab = 'bread'"
+                  :class="{ 
+                                'text-brand-red-dark border-brand-red-dark': activeTab === 'bread', 
+                                'text-gray-500 border-transparent': activeTab !== 'bread' 
+                            }"
+                  class="text-xl font-semibold tracking-wide border-b-2 pb-1 transition-colors duration-300 ease-in-out hover:text-brand-red-dark"
+                >
+                  Bread
+                </button>
+              </li>
+              <li>
+                <button
+                  @click="activeTab = 'donut'"
+                  :class="{ 
+                                'text-brand-red-dark border-brand-red-dark': activeTab === 'donut', 
+                                'text-gray-500 border-transparent': activeTab !== 'donut' 
+                            }"
+                  class="text-xl font-semibold tracking-wide border-b-2 pb-1 transition-colors duration-300 ease-in-out hover:text-brand-red-dark"
+                >
+                  Donut
+                </button>
+              </li>
+              <li>
+                <button
+                  @click="activeTab = 'bakery'"
+                  :class="{ 
+                                'text-brand-red-dark border-brand-red-dark': activeTab === 'bakery', 
+                                'text-gray-500 border-transparent': activeTab !== 'bakery' 
+                            }"
+                  class="text-xl font-semibold tracking-wide border-b-2 pb-1 transition-colors duration-300 ease-in-out hover:text-brand-red-dark"
+                >
+                  Bakery
+                </button>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="mt-8">
+            <div
+              x-show="activeTab === 'cakes'"
+              class="grid grid-cols-1 md:grid-cols-4 gap-8"
+            >
+              <aside
+                class="md:col-span-1 bg-brand-red p-8 text-white rounded-lg"
+              >
+                <h3 class="text-2xl font-semibold mb-6 about-us text-4xl">
+                  Filling
+                </h3>
+                <p class="mb-6 opacity-90">
+                  Bạn có thể chọn một trong sáu loại topping
+                </p>
+                <ul class="space-y-4 mb-8">
+                  <li>Oreo</li>
+                  <li>Chocolate</li>
+                  <li>Trái cây</li>
+                  <li>Phô mai</li>
+                  <li>Red Velvet</li>
+                  <li>Trà xanh</li>
+                </ul>
+                <button
+                  class="w-full text-center bg-transparent border border-white py-3 px-6 rounded-lg font-semibold hover:bg-white hover:text-brand-red transition-colors"
+                >
+                  To Order
+                </button>
+              </aside>
+
+              <div class="md:col-span-3 grid grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                  <img
+                    src="images/cake-1.png"
+                    alt="Oreo Cake"
+                    class="w-full object-cover"
+                  />
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                  <img
+                    src="images/cake-2.png"
+                    alt="Oreo Cake"
+                    class="w-full object-cover"
+                  />
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                  <img
+                    src="images/cake-3.png"
+                    alt="Oreo Cake"
+                    class="w-full object-cover"
+                  />
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                  <img
+                    src="images/cake-4.png"
+                    alt="Oreo Cake"
+                    class="w-full object-cover"
+                  />
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                  <img
+                    src="images/cake-5.png"
+                    alt="Oreo Cake"
+                    class="w-full object-cover"
+                  />
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                  <img
+                    src="images/cake-6.png"
+                    alt="Oreo Cake"
+                    class="w-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div
+              x-show="activeTab === 'cupcakes'"
+              class="grid grid-cols-2 md:grid-cols-4 gap-6"
+            >
+              <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src="images/cupcake-1.png"
+                  alt="Cupcake"
+                  class="w-full object-cover"
+                />
+                <h4 class="p-4 font-semibold text-brand-text text-center">
+                  Vanilla Cupcake
+                </h4>
+              </div>
+
+              <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src="images/cupcake-.png"
+                  alt="Cupcake"
+                  class="w-full object-cover"
+                />
+                <h4 class="p-4 font-semibold text-brand-text text-center">
+                  Chocolate Cupcake
+                </h4>
+              </div>
+
+              <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src="images/cupcake-3.png"
+                  alt="Cupcake"
+                  class="w-full object-cover"
+                />
+                <h4 class="p-4 font-semibold text-brand-text text-center">
+                  Red Velvet Cupcake
+                </h4>
+              </div>
+              <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src="images/cupcake-4.png"
+                  alt="Cupcake"
+                  class="w-full object-cover"
+                />
+                <h4 class="p-4 font-semibold text-brand-text text-center">
+                  Fruit Cupcake
+                </h4>
+              </div>
+            </div>
+
+            <div
+              x-show="activeTab === 'bread'"
+              class="grid grid-cols-2 md:grid-cols-4 gap-6"
+            >
+              <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src="https://source.unsplash.com/random/400x400?bread"
+                  alt="Bread"
+                  class="w-full h-56 object-cover"
+                />
+                <h4 class="p-4 font-semibold text-brand-text">
+                  Sourdough Loaf
+                </h4>
+              </div>
+              <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src="https://source.unsplash.com/random/400x400?baguette"
+                  alt="Bread"
+                  class="w-full h-56 object-cover"
+                />
+                <h4 class="p-4 font-semibold text-brand-text">Baguette</h4>
+              </div>
+              <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src="https://source.unsplash.com/random/400x400?croissant"
+                  alt="Bread"
+                  class="w-full h-56 object-cover"
+                />
+                <h4 class="p-4 font-semibold text-brand-text">Croissant</h4>
+              </div>
+              <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src="https://source.unsplash.com/random/400x400?brioche"
+                  alt="Bread"
+                  class="w-full h-56 object-cover"
+                />
+                <h4 class="p-4 font-semibold text-brand-text">Brioche</h4>
+              </div>
+            </div>
+
+            <div
+              x-show="activeTab === 'donut'"
+              class="grid grid-cols-2 md:grid-cols-4 gap-6"
+            >
+              <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src="https://source.unsplash.com/random/400x400?donut"
+                  alt="Donut"
+                  class="w-full h-56 object-cover"
+                />
+                <h4 class="p-4 font-semibold text-brand-text">Glazed Donut</h4>
+              </div>
+              <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src="https://source.unsplash.com/random/400x400?donut,chocolate"
+                  alt="Donut"
+                  class="w-full h-56 object-cover"
+                />
+                <h4 class="p-4 font-semibold text-brand-text">
+                  Chocolate Sprinkles
+                </h4>
+              </div>
+              <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src="https://source.unsplash.com/random/400x400?donut,jelly"
+                  alt="Donut"
+                  class="w-full h-56 object-cover"
+                />
+                <h4 class="p-4 font-semibold text-brand-text">Jelly Filled</h4>
+              </div>
+              <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src="https://source.unsplash.com/random/400x400?donut,bostoncream"
+                  alt="Donut"
+                  class="w-full h-56 object-cover"
+                />
+                <h4 class="p-4 font-semibold text-brand-text">Boston Cream</h4>
+              </div>
+            </div>
+
+            <div
+              x-show="activeTab === 'bakery'"
+              class="grid grid-cols-2 md:grid-cols-4 gap-6"
+            >
+              <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src="https://source.unsplash.com/random/400x400?pastry"
+                  alt="Pastry"
+                  class="w-full h-56 object-cover"
+                />
+                <h4 class="p-4 font-semibold text-brand-text">
+                  Apple Turnover
+                </h4>
+              </div>
+              <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src="https://source.unsplash.com/random/400x400?cookie"
+                  alt="Cookie"
+                  class="w-full h-56 object-cover"
+                />
+                <h4 class="p-4 font-semibold text-brand-text">
+                  Choc Chip Cookie
+                </h4>
+              </div>
+              <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src="https://source.unsplash.com/random/400x400?macaron"
+                  alt="Macaron"
+                  class="w-full h-56 object-cover"
+                />
+                <h4 class="p-4 font-semibold text-brand-text">Macarons</h4>
+              </div>
+              <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src="https://source.unsplash.com/random/400x400?eclair"
+                  alt="Eclair"
+                  class="w-full h-56 object-cover"
+                />
+                <h4 class="p-4 font-semibold text-brand-text">Eclair</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--About us-->
+      <section id="about-us" class="py-16 md:py-24 overflow-hidden">
+        <div class="container mx-auto px-4 max-w-5xl">
+          <div class="text-center mb-12">
+            <h2 class="text-5xl md:text-6xl font-cursive text-pink-700 mb-4">
+              Về chúng tôi
+            </h2>
+            <div class="w-24 h-1 bg-pink-500 mx-auto rounded-full"></div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div class="space-y-6">
+              <p
+                class="text-lg md:text-xl text-[#614735] leading-relaxed text-center lg:text-left"
+              >
+                Chúng tôi
+                <span class="font-bold text-pink-600"
+                  >chuyên bán bánh ngọt, bánh cupcake và bánh quy theo yêu
+                  cầu</span
+                >. Đến đây, bạn không chỉ được thưởng thức những chiếc bánh
+                <span class="italic">ngon nhất thành phố</span> mà còn có thể
+                tận hưởng
+                <span class="font-semibold text-pink-700"
+                  >những khoảnh khắc tuyệt vời bên gia đình</span
+                >.
+              </p>
+
+              <p
+                class="text-lg md:text-xl text-[#614735] leading-relaxed text-center lg:text-left"
+              >
+                Chúng tôi
+                <span class="text-pink-600 font-bold"
+                  >cho phép mọi người đặt bánh theo thiết kế riêng</span
+                >
+                cho bất kỳ ngày lễ nào — sinh nhật, cưới hỏi, kỷ niệm, hay chỉ
+                đơn giản là một ngày đặc biệt.
+              </p>
+              <div class="text-center lg:text-left mt-8">
+                <a
+                  href="#get-cake"
+                  class="inline-block px-8 py-3 bg-pink-600 text-white font-semibold rounded-full hover:bg-pink-700 transition transform hover:scale-105 shadow-lg"
+                >
+                  Liên hệ đặt bánh
+                </a>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div class="relative z-10">
+                <img
+                  src="images/banner.jpg"
+                  alt="Bánh ngọt tại Cake Bakery"
+                  class="rounded-2xl shadow-2xl w-full object-cover h-96 lg:h-full"
+                />
+              </div>
+              <div
+                class="absolute -top-6 -left-6 w-32 h-32 bg-pink-200 rounded-full opacity-60 blur-xl"
+              ></div>
+              <div
+                class="absolute -bottom-8 -right-8 w-40 h-40 bg-amber-200 rounded-full opacity-50 blur-xl"
+              ></div>
+              <div
+                class="absolute top-6 right-6 bg-white p-3 rounded-full shadow-md"
+              >
+                <svg
+                  class="w-8 h-8 text-pink-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4z"
+                  />
+                  <path
+                    d="M3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6z"
+                  />
+                  <path
+                    d="M14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="absolute -left-4 top-1/2 transform -translate-y-1/2 text-pink-200 text-9xl font-bold opacity-30 select-none"
+              >
+                “
+              </div>
+            </div>
+          </div>
+          <div
+            class="text-center mt-12 text-pink-600 font-cursive text-3xl italic"
+          >
+            Mỗi chiếc bánh là một câu chuyện...
+          </div>
+        </div>
+      </section>
+
+      <!--Slider-->
+      <section class="py-16">
+        <div class="container mx-auto px-4">
+          <h2
+            class="text-5xl md:text-6xl font-cursive text-[#f37977] text-center mb-12 about-us"
+          >
+            Cake Bakery
+          </h2>
+
+          <!-- Swiper Slider -->
+          <div class="swiper mySwiper max-w-6xl mx-auto">
+            <div class="swiper-wrapper">
+              <!-- Slide 1 -->
+              <div class="swiper-slide">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                  <!-- Cột trái: Ưu đãi -->
+                  <div
+                    class="bg-pink-100 p-8 rounded-lg shadow-lg text-center md:text-left"
+                  >
+                    <h3 class="text-3xl text-pink-700 mb-4">Ưu đãi đặc biệt</h3>
+                    <p class="text-lg text-pink-900 leading-relaxed mb-6">
+                      Khi bạn mua ba chiếc bánh hoặc hai chiếc bánh,
+                      <span class="font-bold">
+                        bạn sẽ được tặng một chiếc bánh nhỏ</span
+                      >.
+                    </p>
+                    <button
+                      class="mt-4 px-8 py-3 border-2 border-pink-600 text-pink-700 font-medium rounded-full hover:bg-pink-600 hover:text-white transition"
+                    >
+                      To Order
+                    </button>
+                  </div>
+
+                  <div class="flex justify-center">
+                    <img
+                      src="images/cupcape-nam.jpg"
+                      alt="Cupcake nấm"
+                      class="rounded-lg shadow-xl w-full max-w-md object-cover h-80"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                  <div
+                    class="bg-rose-100 p-8 rounded-lg shadow-lg text-center md:text-left"
+                  >
+                    <h3 class="text-3xl font-cursive text-rose-700 mb-4">
+                      Mua 1 tặng 1
+                    </h3>
+                    <p class="text-lg text-rose-900 leading-relaxed mb-6">
+                      Mua 1 bánh kem lớn,
+                      <span class="font-bold"
+                        >tặng ngay 1 bánh mousse nhỏ xinh!</span
+                      >
+                    </p>
+                    <button
+                      class="mt-4 px-8 py-3 border-2 border-rose-600 text-rose-700 font-medium rounded-full hover:bg-rose-600 hover:text-white transition"
+                    >
+                      Nhận ngay
+                    </button>
+                  </div>
+                  <div class="flex justify-center">
+                    <img
+                      src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                      alt="Bánh kem"
+                      class="rounded-lg shadow-xl w-full max-w-md object-cover h-80"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Customer evaluation -->
+      <section id="comments" class="py-16">
+        <div class="container mx-auto px-4 max-w-6xl">
+          <!-- Tiêu đề -->
+          <h2
+            class="text-4xl about-us md:text-5xl font-cursive text-pink-600 text-center mb-12"
+          >
+            Khách hàng nói gì về chúng tôi
+          </h2>
+
+          <div class="swiper reviewSwiper">
+            <div class="swiper-wrapper">
+              <!-- Đánh giá 1 -->
+              <div class="swiper-slide">
+                <div
+                  class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-pink-100 text-center max-w-2xl mx-auto"
+                >
+                  <div class="flex justify-center mb-4">
+                    <img
+                      src="https://randomuser.me/api/portraits/women/44.jpg"
+                      alt="Khách hàng"
+                      class="w-20 h-20 rounded-full object-cover border-4 border-pink-200"
+                    />
+                  </div>
+                  <p class="text-lg text-gray-700 italic mb-4 leading-relaxed">
+                    “Tiệm bánh tuyệt vời. Mỗi lần ghé thăm là một niềm vui!”
+                  </p>
+                  <p class="font-semibold text-pink-700">— Nguyễn Lan Anh</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-pink-100 text-center max-w-2xl mx-auto"
+                >
+                  <div class="flex justify-center mb-4">
+                    <img
+                      src="https://randomuser.me/api/portraits/men/32.jpg"
+                      alt="Khách hàng"
+                      class="w-20 h-20 rounded-full object-cover border-4 border-pink-200"
+                    />
+                  </div>
+                  <p class="text-lg text-gray-700 italic mb-4 leading-relaxed">
+                    “Ngồi trong quán ăn một miếng bánh yêu thích luôn là một
+                    trải nghiệm tuyệt vời.”
+                  </p>
+                  <p class="font-semibold text-pink-700">— Trần Minh Quân</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-pink-100 text-center max-w-2xl mx-auto"
+                >
+                  <div class="flex justify-center mb-4">
+                    <img
+                      src="https://randomuser.me/api/portraits/women/68.jpg"
+                      alt="Khách hàng"
+                      class="w-20 h-20 rounded-full object-cover border-4 border-pink-200"
+                    />
+                  </div>
+                  <p class="text-lg text-gray-700 italic mb-4 leading-relaxed">
+                    “Tôi rất thích vị Chocolate của Cupcake tiệm của Kim. Tan
+                    chảy luôn!”
+                  </p>
+                  <p class="font-semibold text-pink-700">— Phạm Thị Kim</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-pink-100 text-center max-w-2xl mx-auto"
+                >
+                  <div class="flex justify-center mb-4">
+                    <img
+                      src="https://randomuser.me/api/portraits/men/56.jpg"
+                      alt="Khách hàng"
+                      class="w-20 h-20 rounded-full object-cover border-4 border-pink-200"
+                    />
+                  </div>
+                  <p class="text-lg text-gray-700 italic mb-4 leading-relaxed">
+                    “Khi không thể đến quán, tôi luôn sử dụng dịch vụ giao hàng
+                    và nó rất thuận tiện. Tiệm bánh luôn làm việc rất nhanh.”
+                  </p>
+                  <p class="font-semibold text-pink-700">— Lê Văn Hùng</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-pink-100 text-center max-w-2xl mx-auto"
+                >
+                  <div class="flex justify-center mb-4">
+                    <img
+                      src="https://randomuser.me/api/portraits/women/22.jpg"
+                      alt="Khách hàng"
+                      class="w-20 h-20 rounded-full object-cover border-4 border-pink-200"
+                    />
+                  </div>
+                  <p class="text-lg text-gray-700 italic mb-4 leading-relaxed">
+                    “Bánh sinh nhật đặt ở đây chưa bao giờ làm mình thất vọng.
+                    Đẹp lung linh, ngon khó cưỡng!”
+                  </p>
+                  <p class="font-semibold text-pink-700">— Vũ Ngọc Ánh</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-pagination mt-8"></div>
+            <div class="swiper-button-prev !left-2 md:!left-4"></div>
+            <div class="swiper-button-next !right-2 md:!right-4"></div>
+          </div>
+        </div>
+      </section>
+
+      <!--More info-->
+      <section id="more-info" class="py-16 md:py-24">
+        <div class="px-4">
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center max-w-7xl mx-auto"
+          >
+            <!-- Cột trái: Hình ảnh -->
+            <div class="relative overflow-hidden rounded-xl shadow-2xl">
+              <img
+                src="images/info.jpg"
+                alt="Bánh pie táo"
+                class="w-full h-full object-cover md:h-[500px] lg:h-full"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"
+              ></div>
+            </div>
+
+            <!-- Cột phải: Thông tin -->
+            <div
+              class="bg-red-400 text-white p-8 md:p-12 rounded-xl shadow-xl h-500 flex flex-col justify-center"
+            >
+              <!-- Tiêu đề -->
+              <h3
+                class="text-4xl md:text-5xl font-cursive text-center md:text-left mb-10 about-us"
+              >
+                Thông tin
+              </h3>
+
+              <!-- Nội dung thông tin -->
+              <div class="space-y-6 text-lg md:text-xl font-light">
+                <div
+                  class="flex justify-between items-start border-b border-white/30 pb-3"
+                >
+                  <span class="font-medium"
+                    ><i class="fa-solid fa-phone"></i> Số điện thoại:</span
+                  >
+                  <span class="text-right max-w-xs">+8433 7854 859</span>
+                </div>
+
+                <div
+                  class="flex justify-between items-start border-b border-white/30 pb-3"
+                >
+                  <span class="font-medium"
+                    ><i class="fa-solid fa-envelope"></i> Mail:</span
+                  >
+                  <span class="text-right max-w-xs"
+                    >kimcake&dessert@gmail.com</span
+                  >
+                </div>
+
+                <div
+                  class="flex justify-between items-start border-b border-white/30 pb-3"
+                >
+                  <span class="font-medium"
+                    ><i class="fa-solid fa-location-dot"></i> Địa chỉ:</span
+                  >
+                  <a
+                    target="blank"
+                    href="https://maps.app.goo.gl/y55Fdk2yue5dk4jh6"
+                    class="text-right max-w-xs leading-tight"
+                  >
+                    <span>
+                      642 CMT8, phường Thủ Dầu Một,<br />
+                      thành phố Hồ Chí Minh
+                    </span>
+                  </a>
+                </div>
+
+                <div class="flex justify-between items-start pt-3">
+                  <span class="font-medium"></span>
+                  <span
+                    class="text-right max-w-xs leading-tight text-sm md:text-base"
+                  >
+                    32A Lê Thị Ân, xã Bình Mỹ, ấp Hội Thanh,<br />
+                    thành phố Hồ Chí Minh
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--Login Form-->
+      <section
+        id="get-cake"
+        class="flex items-center justify-center px-4 py-12 hover:scale-105 transition-all duration-300 mb-10"
+      >
+        <div class="w-full max-w-4xl rounded-lg shadow-xl p-8 md:p-12">
+          <h2
+            class="text-4xl md:text-5xl font-cursive text-amber-700 text-center mb-10 about-us"
+          >
+            Đăng nhập
+          </h2>
+          <form class="space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="space-y-6">
+                <div>
+                  <label class="block text-amber-800 font-medium mb-2">
+                    Họ và tên:
+                  </label>
+                  <input
+                    type="text"
+                    class="w-full border-b-2 border-amber-600 focus:border-amber-800 outline-none pb-1 text-amber-900 placeholder-amber-400 bg-transparent"
+                    placeholder=""
+                  />
+                </div>
+
+                <div>
+                  <label class="block text-amber-800 font-medium mb-2">
+                    Số điện thoại:
+                  </label>
+                  <input
+                    type="tel"
+                    class="w-full border-b-2 border-amber-600 focus:border-amber-800 outline-none pb-1 text-amber-900 placeholder-amber-400 bg-transparent"
+                    placeholder=""
+                  />
+                </div>
+              </div>
+
+              <div class="space-y-6">
+                <div>
+                  <label class="block text-amber-800 font-medium mb-2">
+                    Địa chỉ:
+                  </label>
+                  <input
+                    type="text"
+                    class="w-full border-b-2 border-amber-600 focus:border-amber-800 outline-none pb-1 text-amber-900 placeholder-amber-400 bg-transparent"
+                    placeholder=""
+                  />
+                </div>
+
+                <div>
+                  <label class="block text-amber-800 font-medium mb-2">
+                    Mail:
+                  </label>
+                  <input
+                    type="email"
+                    class="w-full border-b-2 border-amber-600 focus:border-amber-800 outline-none pb-1 text-amber-900 placeholder-amber-400 bg-transparent"
+                    placeholder=""
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-center mt-10">
+              <button
+                type="submit"
+                class="px-10 py-3 bg-amber-700 text-white font-semibold rounded-full hover:bg-amber-800 transition duration-300 shadow-md"
+              >
+                Gửi
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!--Footer-->
+    <footer>
+      <div
+        class="flex items-center justify-center gap-20 bg-[#f37977] font-semibold text-[#f8e8da]"
+      >
+        <div>
+          <img src="images/logo-footer.png" alt="" width="100" />
+        </div>
+
+        <div class="hover:text-[#f37977]">
+          <a href="">Trang Chủ</a>
+        </div>
+        <div
+          class="hover:text-[#f37977] hover:border-b-2 hover: border-[#f37977]"
+        >
+          <a href="">Danh Mục</a>
+        </div>
+        <div class="hover:text-[#f37977]">
+          <a href="">Về Chúng Tôi</a>
+        </div>
+        <div class="hover:text-[#f37977]">
+          <a href="">Yêu Cầu</a>
+        </div>
+        <div class="hover:text-[#f37977]">
+          <a href="">Thông Tin</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+
+  <!--Java script -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            cursive: ['"Dancing Script"', "cursive"],
+          },
+          colors: {
+            // Custom color palette from the image
+            "brand-beige": "#FBF5EE",
+            "brand-red": "#EA7C7C",
+            "brand-text": "#5D4037",
+            "brand-red-dark": "#D32F2F",
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const reviewSwiper = new Swiper(".reviewSwiper", {
+      loop: true,
+      autoplay: { delay: 4000, disableOnInteraction: false },
+      slidesPerView: 1,
+      spaceBetween: 30,
+      pagination: { el: ".swiper-pagination", clickable: true },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      },
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper(".mySwiper", {
+      loop: true,
+      autoplay: { delay: 5000, disableOnInteraction: false },
+      pagination: { el: ".swiper-pagination", clickable: true },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      effect: "fade",
+      fadeEffect: { crossFade: true },
+    });
+  </script>
+  <script src="script.js"></script>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cake Bakery - Danh mục</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Font chữ ký tay -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    .font-cursive { font-family: 'Dancing Script', cursive; }
+    .swiper-button-next, .swiper-button-prev { color: #e91e63; }
+    .swiper-pagination-bullet-active { background: #e91e63; }
+    .category-title { font-size: 2.5rem; color: #6b3e2e; }
+    .active-tab { border-bottom: 3px solid #e91e63; color: #6b3e2e; font-weight: bold; }
+  </style>
+</head>
+<body class="bg-amber-50">
+
+<!-- Section Danh mục -->
+<section class="py-16">
+  <div class="container mx-auto px-4 max-w-7xl">
+
+    <!-- Tiêu đề -->
+    <h2 class="text-5xl md:text-6xl font-cursive text-pink-600 text-center mb-8">
+      Danh mục
+    </h2>
+
+    <!-- Tabs (chỉ để hiển thị, không click - Swiper điều khiển) -->
+    <div class="flex justify-center space-x-6 md:space-x-10 mb-12 flex-wrap">
+      <div class="category-tab text-2xl md:text-3xl category-title pb-2 active-tab">Cakes</div>
+      <div class="category-tab text-2xl md:text-3xl category-title pb-2 text-gray-500">Cupcakes</div>
+      <div class="category-tab text-2xl md:text-3xl category-title pb-2 text-gray-500">Bread</div>
+      <div class="category-tab text-2xl md:text-3xl category-title pb-2 text-gray-500">Donut</div>
+      <div class="category-tab text-2xl md:text-3xl category-title pb-2 text-gray-500">Bakery</div>
+    </div>
+
+    <!-- Swiper Slider -->
+    <div class="swiper categorySwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1: Cakes -->
+        <div class="swiper-slide">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Cột trái: Topping -->
+            <div class="bg-red-300 text-white p-6 md:p-8 rounded-xl shadow-lg flex flex-col justify-between h-full">
+              <div>
+                <h3 class="text-3xl font-cursive mb-4">Filling</h3>
+                <p class="mb-6 text-sm md:text-base">Bạn có thể chọn một trong sáu loại topping</p>
+                <ul class="space-y-2 text-sm md:text-base">
+                  <li>Oreo</li>
+                  <li>Chocolate</li>
+                  <li>Trái cây</li>
+                  <li>Phô mai</li>
+                  <li>Red Velvet</li>
+                  <li>Trà xanh</li>
+                </ul>
+              </div>
+              <button class="mt-6 px-8 py-3 border-2 border-white text-white rounded-full hover:bg-white hover:text-red-500 transition font-medium">
+                To Order
+              </button>
+            </div>
+
+            <!-- Cột giữa & phải: Hình ảnh -->
+            <div class="col-span-2 grid grid-cols-2 md:grid-cols-3 gap-4">
+              <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Oreo Cake" class="rounded-lg shadow-md object-cover h-48 md:h-64">
+              <img src="https://images.unsplash.com/photo-1622621744899-4ebbfbc28a6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Caramel Cake" class="rounded-lg shadow-md object-cover h-48 md:h-64">
+              <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Matcha Cake" class="rounded-lg shadow-md object-cover h-48 md:h-64">
+              <img src="https://images.unsplash.com/photo-1558305543-7a45ed2e8e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Chocolate Cake" class="rounded-lg shadow-md object-cover h-48 md:h-64">
+              <img src="https://images.unsplash.com/photo-1607472586895-2b1bec8c0a8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Red Velvet" class="rounded-lg shadow-md object-cover h-48 md:h-64">
+              <img src="https://images.unsplash.com/photo-1616541823252-7c9c97d2c88a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Fruit Cake" class="rounded-lg shadow-md object-cover h-48 md:h-64">
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Cupcakes -->
+        <div class="swiper-slide">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-red-300 text-white p-8 rounded-xl shadow-lg">
+              <h3 class="text-3xl font-cursive mb-4">Cupcakes</h3>
+              <p class="mb-6">Nhỏ xinh, đa dạng vị</p>
+              <button class="mt-auto px-8 py-3 border-2 border-white text-white rounded-full hover:bg-white hover:text-red-500 transition font-medium">
+                To Order
+              </button>
+            </div>
+            <div class="col-span-2 grid grid-cols-2 md:grid-cols-3 gap-4">
+              <img src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cupcake" class="rounded-lg shadow-md object-cover h-48 md:h-64">
+              <img src="https://images.unsplash.com/photo-1563805042-7684c7f05711?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cupcake" class="rounded-lg shadow-md object-cover h-48 md:h-64">
+              <!-- Thêm ảnh nếu cần -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Bread, 4: Donut, 5: Bakery (giống cấu trúc) -->
+        <!-- Bạn có thể copy-paste và thay nội dung -->
+        <!-- Để ngắn gọn, chỉ làm 2 slide mẫu -->
+
+      </div>
+
+      <!-- Điều hướng & Pagination -->
+      <div class="flex justify-center items-center mt-8 space-x-4">
+        <div class="swiper-button-prev"></div>
+        <span class="text-xl font-medium text-pink-700">01 <span class="text-gray-400">/ 05</span></span>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const categorySwiper = new Swiper('.categorySwiper', {
+    loop: false,
+    slidesPerView: 1,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    on: {
+      slideChange: function () {
+        // Cập nhật tab active
+        document.querySelectorAll('.category-tab').forEach((tab, index) => {
+          tab.classList.remove('active-tab', 'text-gray-800');
+          tab.classList.add('text-gray-500');
+          if (index === this.realIndex) {
+            tab.classList.add('active-tab');
+            tab.classList.remove('text-gray-500');
+            tab.classList.add('text-gray-800');
+          }
+        });
+        // Cập nhật số 01/05
+        const current = String(this.realIndex + 1).padStart(2, '0');
+        document.querySelector('.swiper-button-prev + span').innerHTML = `${current} <span class="text-gray-400">/ 05</span>`;
+      }
+    }
+  });
+
+  // Khởi tạo ban đầu
+  document.querySelector('.swiper-button-prev + span').innerHTML = `01 <span class="text-gray-400">/ 05</span>`;
+</script>
+
+</body>
+</html>
