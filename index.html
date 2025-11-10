@@ -23,62 +23,90 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-    <link rel="icon" href="images/favicon.png" type="image/png">
-<!-- <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-<link rel="apple-touch-icon" href="images/favicon.png"> -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="images/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css"/>
     <title>Kim's Bakery Store</title>
   </head>
   <body>
-    <header>
-      <div
-        class="flex items-center justify-center gap-20 bg-[#f8e8da] font-semibold text-[#614735]"
-      >
-        <img src="images/logo.png" alt="" width="100" />
-        <div class="hover:text-[#f37977]">
-          <a href="">Trang Chủ</a>
-        </div>
-        <div class="hover:text-[#f37977]">
-          <a href="#category">Danh Mục</a>
-        </div>
-        <div class="hover:text-[#f37977]">
-          <a href="#about-us">Về Chúng Tôi</a>
-        </div>
-        <div class="hover:text-[#f37977]">
-          <a href="#get-cake">Yêu Cầu</a>
-        </div>
-        <div class="hover:text-[#f37977]">
-          <a href="#more-info">Thông Tin</a>
-        </div>
+   <header class="bg-[#f8e8da] shadow-md sticky top-0 z-50">
+  <nav class="container mx-auto px-4">
+    <div class="flex items-center justify-center py-4 gap-10">
+      
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <img src="images/logo.png" alt="Cake Bakery" class="h-10 w-auto lg:h-12" />
       </div>
-    </header>
 
-    <main class="bg-[#f8e8da] mt-5 flex flex-col items-center">
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#home" class="nav-link">Trang Chủ</a>
+        <a href="#category" class="nav-link">Danh Mục</a>
+        <a href="#about-us" class="nav-link">Về Chúng Tôi</a>
+        <a href="#get-cake" class="nav-link">Yêu Cầu</a>
+        <a href="#more-info" class="nav-link">Thông Tin</a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button id="menu-toggle" class="md:hidden text-[#614735] focus:outline-none">
+  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+  </svg>
+</button>
+    </div>
+
+    <!-- Mobile Menu (ẩn mặc định) -->
+    <div class="md:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 bg-[#f8e8da] border-t border-gray-200">
+        <a href="#home" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Trang Chủ</a>
+        <a href="#category" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Danh Mục</a>
+        <a href="#about-us" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Về Chúng Tôi</a>
+        <a href="#get-cake" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Yêu Cầu</a>
+        <a href="#more-info" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Thông Tin</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+    <main class="bg-[#f8e8da] flex flex-col items-center">
       <!--Banner-->
-      <section id="home" class="min-h-screen grid grid-cols-1 lg:grid-cols-3">
-        <div class="flex flex-col justify-center px-8 lg:px-16 bg-white">
+      <section
+        id="home"
+        class="grid grid-cols-1 lg:grid-cols-3 overflow-hidden rounded-xl mt-10"
+      >
+        <!-- Phần Text (1/3) -->
+        <div
+          class="flex flex-col justify-center px-6 lg:px-12 py-10 bg-white text-center lg:text-left"
+        >
           <h1
-            class="text-4xl lg:text-6xl font-bold text-gray-800 mb-4 text-center banner"
+            class="text-3xl lg:text-5xl font-bold text-gray-800 mb-4 banner leading-tight text-center"
           >
             Đặt Bánh<br />
             <span class="text-gray-600 banner">Ngay Tại Đây</span>
           </h1>
 
-          <button
-            class="mt-6 px-8 py-3 border-2 border-gray-400 text-gray-700 rounded-full hover:bg-gray-100 transition self-center"
-          >
-            <a href="#category">Chọn Bánh</a>
-          </button>
+          <a href="#category" class="mt-6 inline-block self-center">
+            <button
+              class="px-7 py-2.5 border-2 border-gray-400 text-gray-700 rounded-full hover:bg-gray-100 hover:border-gray-600 hover:text-gray-900 transition-all duration-300 text-sm font-medium"
+            >
+              Chọn Bánh
+            </button>
+          </a>
         </div>
 
+        <!-- Phần Hình ảnh (2/3) – ĐÃ NHỎ GỌN HƠN -->
         <div
-          class="lg:col-span-2 relative overflow-hidden h-64 lg:h-screen rounded-t-xl"
+          class="lg:col-span-2 relative overflow-hidden h-48 sm:h-56 md:h-64 lg:h-80 xl:h-96 rounded-b-xl lg:rounded-none"
         >
           <img
             src="images/banner.jpg"
-            alt="Bánh ngon"
-            class="absolute inset-0 w-full h-full object-cover"
+            alt="Bánh ngon tại Cake Bakery"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
           />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent lg:from-transparent"
+          ></div>
         </div>
       </section>
 
@@ -179,7 +207,7 @@
                 <button
                   class="w-full text-center bg-transparent border border-white py-3 px-6 rounded-lg font-semibold hover:bg-white hover:text-brand-red transition-colors"
                 >
-                  To Order
+                  <a href="#get-cake">To Order</a>
                 </button>
               </aside>
 
